@@ -1,0 +1,126 @@
+{
+  "dataset_info": {
+    "name": "AEGIS AI DDoS Detection Dataset",
+    "version": "1.0",
+    "creation_date": "2025-06-24T08:35:41.006752",
+    "description": "Dataset sintético para detección de ataques DDoS en redes IoT industriales",
+    "total_samples": 10000,
+    "class_distribution": {
+      "1": 5000,
+      "0": 5000
+    }
+  },
+  "features": {
+    "timestamp": {
+      "type": "datetime",
+      "description": "Marca temporal del flujo de red",
+      "format": "YYYY-MM-DD HH:MM:SS"
+    },
+    "src_ip": {
+      "type": "string",
+      "description": "Dirección IP de origen",
+      "example": "192.168.100.15"
+    },
+    "dst_ip": {
+      "type": "string",
+      "description": "Dirección IP de destino",
+      "example": "192.168.100.25"
+    },
+    "src_port": {
+      "type": "integer",
+      "description": "Puerto de origen",
+      "range": "1-65535"
+    },
+    "dst_port": {
+      "type": "integer",
+      "description": "Puerto de destino",
+      "range": "1-65535"
+    },
+    "protocol": {
+      "type": "string",
+      "description": "Protocolo de transporte",
+      "values": [
+        "TCP",
+        "UDP",
+        "ICMP"
+      ]
+    },
+    "duration": {
+      "type": "float",
+      "description": "Duración de la conexión en segundos",
+      "unit": "seconds"
+    },
+    "total_packets": {
+      "type": "integer",
+      "description": "Número total de paquetes en el flujo",
+      "unit": "packets"
+    },
+    "total_bytes": {
+      "type": "integer",
+      "description": "Bytes totales transferidos",
+      "unit": "bytes"
+    },
+    "avg_packet_size": {
+      "type": "float",
+      "description": "Tamaño promedio de paquete",
+      "unit": "bytes"
+    },
+    "packet_rate": {
+      "type": "float",
+      "description": "Frecuencia de paquetes por segundo",
+      "unit": "packets/second"
+    },
+    "bytes_per_second": {
+      "type": "float",
+      "description": "Tasa de transferencia de datos",
+      "unit": "bytes/second"
+    },
+    "tcp_flags": {
+      "type": "integer",
+      "description": "Flags TCP combinados (valor decimal)",
+      "note": "SYN=2, ACK=16, FIN=1, RST=4, etc."
+    },
+    "inter_arrival_time": {
+      "type": "float",
+      "description": "Tiempo promedio entre paquetes",
+      "unit": "seconds"
+    },
+    "device_type": {
+      "type": "string",
+      "description": "Tipo de dispositivo IoT o tipo de ataque",
+      "values": [
+        "sensor_temperatura",
+        "camara_ip",
+        "controlador_plc",
+        "gateway_iot",
+        "attack_volumetrico",
+        "attack_protocolo_tcp_syn",
+        "attack_aplicacion_http"
+      ]
+    },
+    "label": {
+      "type": "integer",
+      "description": "Etiqueta de clasificación",
+      "values": {
+        "0": "Tráfico normal",
+        "1": "Ataque DDoS"
+      }
+    }
+  },
+  "iot_devices": {
+    "sensor_temperatura": "Sensores de temperatura industrial con comunicación Modbus/MQTT",
+    "camara_ip": "Cámaras IP de vigilancia industrial",
+    "controlador_plc": "Controladores lógicos programables (PLC)",
+    "gateway_iot": "Gateways IoT para agregación de datos"
+  },
+  "ddos_attack_types": {
+    "volumetrico": "Ataques de volumen alto para saturar ancho de banda",
+    "protocolo_tcp_syn": "Ataques SYN flood para agotar recursos de conexión",
+    "aplicacion_http": "Ataques a nivel de aplicación HTTP/HTTPS"
+  },
+  "network_topology": {
+    "iot_subnet": "192.168.100.0/24 - Red de dispositivos IoT",
+    "external_subnet": "10.0.0.0/24 - Red externa/corporativa",
+    "attacker_subnet": "172.16.0.0/24 - Red de atacantes simulados"
+  }
+}

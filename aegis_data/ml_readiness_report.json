@@ -1,0 +1,182 @@
+{
+  "dataset_summary": {
+    "total_samples": 10000,
+    "features": 20,
+    "class_balance": {
+      "1": 5000,
+      "0": 5000
+    },
+    "missing_values": "0",
+    "data_types": {
+      "timestamp": "datetime64[ns]",
+      "src_ip": "object",
+      "dst_ip": "object",
+      "src_port": "int64",
+      "dst_port": "int64",
+      "protocol": "object",
+      "duration": "float64",
+      "total_packets": "float64",
+      "total_bytes": "int64",
+      "avg_packet_size": "float64",
+      "packet_rate": "float64",
+      "bytes_per_second": "float64",
+      "tcp_flags": "int64",
+      "inter_arrival_time": "float64",
+      "device_type": "object",
+      "label": "int64",
+      "hour": "int32",
+      "day_of_week": "int32",
+      "src_subnet": "object",
+      "dst_subnet": "object"
+    }
+  },
+  "feature_analysis": {
+    "numeric_features": [
+      "src_port",
+      "dst_port",
+      "duration",
+      "total_packets",
+      "total_bytes",
+      "avg_packet_size",
+      "packet_rate",
+      "bytes_per_second",
+      "tcp_flags",
+      "inter_arrival_time",
+      "label",
+      "hour",
+      "day_of_week"
+    ],
+    "categorical_features": [
+      "src_ip",
+      "dst_ip",
+      "protocol",
+      "device_type",
+      "src_subnet",
+      "dst_subnet"
+    ],
+    "target_variable": "label",
+    "feature_ranges": {
+      "src_port": {
+        "min": 80.0,
+        "max": 65523.0,
+        "mean": 20311.1289,
+        "std": 20515.781688790583
+      },
+      "dst_port": {
+        "min": 22.0,
+        "max": 65519.0,
+        "mean": 15994.9175,
+        "std": 20065.426285656038
+      },
+      "duration": {
+        "min": 0.0,
+        "max": 914.8399967799758,
+        "mean": 183.1652710277231,
+        "std": 217.37920174055867
+      },
+      "total_packets": {
+        "min": 0.0,
+        "max": 597211.0,
+        "mean": 92235.25798092852,
+        "std": 123920.32682320701
+      },
+      "total_bytes": {
+        "min": 0.0,
+        "max": 837377517.0,
+        "mean": 50657562.5698,
+        "std": 98122388.3523427
+      },
+      "avg_packet_size": {
+        "min": 0.0,
+        "max": 1778.8122783803606,
+        "mean": 552.4726099777332,
+        "std": 433.6638692008355
+      },
+      "packet_rate": {
+        "min": 0.0,
+        "max": 15027.718389828013,
+        "mean": 434.4697868963858,
+        "std": 638.7682929514903
+      },
+      "bytes_per_second": {
+        "min": 0.0,
+        "max": 13487660.0,
+        "mean": 270029.36583522026,
+        "std": 596174.5249460607
+      },
+      "tcp_flags": {
+        "min": 0.0,
+        "max": 255.0,
+        "mean": 19.2082,
+        "std": 55.320223114775544
+      },
+      "inter_arrival_time": {
+        "min": 0.0005000650953142,
+        "max": 0.9958374195048474,
+        "mean": 0.05322370413067598,
+        "std": 0.10723680241895886
+      },
+      "hour": {
+        "min": 0.0,
+        "max": 23.0,
+        "mean": 11.3848,
+        "std": 6.877925526345469
+      },
+      "day_of_week": {
+        "min": 0.0,
+        "max": 1.0,
+        "mean": 0.365,
+        "std": 0.48145423439614876
+      }
+    }
+  },
+  "data_quality": {
+    "outliers_detected": {
+      "src_port": 0,
+      "dst_port": 0,
+      "duration": 513,
+      "total_packets": 371,
+      "total_bytes": 1354,
+      "avg_packet_size": 0,
+      "packet_rate": 532,
+      "bytes_per_second": 1318,
+      "tcp_flags": 510,
+      "inter_arrival_time": 1004,
+      "hour": 0,
+      "day_of_week": 0
+    },
+    "skewness": {
+      "src_port": 0.7042320362625447,
+      "dst_port": 1.072539211086483,
+      "duration": 1.4115229233969013,
+      "total_packets": 1.3884435399673722,
+      "total_bytes": 2.871917548361986,
+      "avg_packet_size": 0.567686556985287,
+      "packet_rate": 4.625002428136114,
+      "bytes_per_second": 6.035007321177364,
+      "tcp_flags": 3.9267482718645033,
+      "inter_arrival_time": 4.4347694498083605,
+      "hour": 0.02245098217550236,
+      "day_of_week": 0.5609131491820165
+    },
+    "correlation_with_target": {
+      "src_port": 0.6455977044672859,
+      "dst_port": -0.2028088075185831,
+      "duration": 0.7031241322611244,
+      "total_packets": 0.7396875542732014,
+      "total_bytes": 0.5121709017209083,
+      "avg_packet_size": 0.047140642375122145,
+      "packet_rate": 0.4371543276616723,
+      "bytes_per_second": 0.2647397182012523,
+      "tcp_flags": 0.15209665178133264,
+      "inter_arrival_time": -0.4743920107813471,
+      "hour": -0.016401113968294693,
+      "day_of_week": 0.019940586976131054
+    }
+  },
+  "recommendations": [
+    "✓ No hay valores faltantes - dataset listo para ML",
+    "✓ Dataset balanceado - no se requiere técnicas de balanceo",
+    "✓ Características con alta correlación encontradas: ['src_port', 'duration', 'total_packets', 'total_bytes']"
+  ]
+}

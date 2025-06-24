@@ -1,0 +1,130 @@
+{
+  "aegis_ai_detection_report": {
+    "timestamp": "2025-06-24T08:47:49.351383",
+    "dataset_info": {
+      "train_samples": 7000,
+      "validation_samples": 1000,
+      "test_samples": 2000,
+      "features": 29,
+      "feature_list": [
+        "duration",
+        "total_packets",
+        "total_bytes",
+        "avg_packet_size",
+        "packet_rate",
+        "bytes_per_second",
+        "inter_arrival_time",
+        "src_port",
+        "dst_port",
+        "tcp_flags",
+        "hour",
+        "day_of_week",
+        "is_weekend",
+        "is_internal_traffic",
+        "is_external_source",
+        "is_well_known_port",
+        "is_ephemeral_port",
+        "is_tcp",
+        "is_udp",
+        "is_icmp",
+        "has_syn_flag",
+        "has_ack_flag",
+        "has_fin_flag",
+        "has_rst_flag",
+        "bytes_per_packet",
+        "packets_per_second",
+        "packet_rate_log",
+        "bytes_per_second_log",
+        "is_iot_device"
+      ]
+    },
+    "models_evaluated": [
+      "RandomForest",
+      "XGBoost",
+      "NeuralNetwork"
+    ],
+    "best_model": {
+      "name": "RandomForest",
+      "validation_f1": 1.0,
+      "test_performance": {
+        "accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "auc": 1.0
+      }
+    },
+    "model_comparison": {
+      "RandomForest": {
+        "validation_metrics": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "auc": 1.0
+        },
+        "test_metrics": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "auc": 1.0
+        },
+        "cross_validation": {
+          "f1_mean": 1.0,
+          "f1_std": 0.0
+        }
+      },
+      "XGBoost": {
+        "validation_metrics": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "auc": 1.0
+        },
+        "test_metrics": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "auc": 1.0
+        },
+        "cross_validation": {
+          "f1_mean": 1.0,
+          "f1_std": 0.0
+        }
+      },
+      "NeuralNetwork": {
+        "validation_metrics": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "auc": 1.0
+        },
+        "test_metrics": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "auc": 1.0
+        },
+        "cross_validation": {
+          "f1_mean": 1.0,
+          "f1_std": 0.0
+        }
+      }
+    },
+    "threat_scoring": {
+      "description": "Sistema de scoring 0-100 basado en probabilidad de amenaza",
+      "formula": "threat_score = int(probability * 100)",
+      "interpretation": {
+        "0-30": "Riesgo Bajo",
+        "31-60": "Riesgo Medio",
+        "61-80": "Riesgo Alto",
+        "81-100": "Riesgo Cr\u00edtico"
+      }
+    }
+  }
+}

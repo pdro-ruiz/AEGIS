@@ -1,0 +1,65 @@
+{
+  "validation_info": {
+    "validation_date": "2025-06-24T08:40:46.561070",
+    "validator_version": "1.0",
+    "status": "PASSED"
+  },
+  "dataset_summary": {
+    "total_samples": 10000,
+    "total_features": 16,
+    "class_distribution": {
+      "1": 5000,
+      "0": 5000
+    },
+    "device_types": {
+      "attack_aplicacion_http": 1744,
+      "attack_protocolo_tcp_syn": 1632,
+      "attack_volumetrico": 1624,
+      "gateway_iot": 1303,
+      "controlador_plc": 1242,
+      "camara_ip": 1232,
+      "sensor_temperatura": 1223
+    },
+    "protocols": {
+      "TCP": 7042,
+      "UDP": 2386,
+      "ICMP": 572
+    }
+  },
+  "ml_data_summary": {
+    "train_samples": 7000,
+    "val_samples": 1000,
+    "test_samples": 2000,
+    "processed_features": 29,
+    "feature_names_count": 29
+  },
+  "quality_checks": {
+    "no_missing_values": "True",
+    "balanced_classes": true,
+    "valid_ranges": true,
+    "complete_device_types": true,
+    "ml_data_integrity": true
+  },
+  "file_inventory": {
+    "core_files": [
+      "ddos_dataset.csv",
+      "ddos_dataset.pkl",
+      "processed_ml_data.pkl",
+      "preprocessor.pkl"
+    ],
+    "documentation": [
+      "README.md",
+      "dataset_documentation.json",
+      "ml_data_summary.json",
+      "ml_readiness_report.json"
+    ],
+    "visualizations": [
+      "correlation_matrix.html",
+      "feature_distributions.html",
+      "temporal_analysis.html",
+      "network_topology.html",
+      "attack_types.html",
+      "attack_intensity.html"
+    ]
+  }
+}

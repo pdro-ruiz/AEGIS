@@ -1,0 +1,71 @@
+{
+  "data_preparation_info": {
+    "creation_date": "2025-06-24T08:38:53.531393",
+    "preprocessing_steps": [
+      "Feature engineering",
+      "Outlier handling",
+      "Data splitting",
+      "Standardization"
+    ]
+  },
+  "dataset_splits": {
+    "train_samples": 7000,
+    "val_samples": 1000,
+    "test_samples": 2000,
+    "total_features": 29
+  },
+  "class_distribution": {
+    "train": {
+      "normal": 3500,
+      "ddos": 3500
+    },
+    "val": {
+      "normal": 500,
+      "ddos": 500
+    },
+    "test": {
+      "normal": 1000,
+      "ddos": 1000
+    }
+  },
+  "feature_info": {
+    "selected_features": [
+      "duration",
+      "total_packets",
+      "total_bytes",
+      "avg_packet_size",
+      "packet_rate",
+      "bytes_per_second",
+      "inter_arrival_time",
+      "src_port",
+      "dst_port",
+      "tcp_flags",
+      "hour",
+      "day_of_week",
+      "is_weekend",
+      "is_internal_traffic",
+      "is_external_source",
+      "is_well_known_port",
+      "is_ephemeral_port",
+      "is_tcp",
+      "is_udp",
+      "is_icmp",
+      "has_syn_flag",
+      "has_ack_flag",
+      "has_fin_flag",
+      "has_rst_flag",
+      "bytes_per_packet",
+      "packets_per_second",
+      "packet_rate_log",
+      "bytes_per_second_log",
+      "is_iot_device"
+    ],
+    "feature_count": 29
+  },
+  "data_quality": {
+    "missing_values": 0,
+    "outliers_handled": true,
+    "standardized": true,
+    "balanced": true
+  }
+}

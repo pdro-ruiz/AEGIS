@@ -1,0 +1,76 @@
+
+generator client {
+    provider = "prisma-client-js"
+    binaryTargets = ["native", "linux-musl-arm64-openssl-3.0.x"]
+    output = "/home/ubuntu/aegis_dashboard/app/node_modules/.prisma/client"
+}
+
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+model DetectionLog {
+  id          String   @id @default(cuid())
+  timestamp   DateTime @default(now())
+  sourceIp    String
+  score       Float
+  isDdos      Boolean
+  features    Json
+  explanation Json?
+  severity    String   // LOW, MEDIUM, HIGH, CRITICAL
+  status      String   @default("ACTIVE") // ACTIVE, RESOLVED, IGNORED
+  
+  @@map("detection_logs")
+}
+
+model NetworkMetrics {
+  id              String   @id @default(cuid())
+  timestamp       DateTime @default(now())
+  packetsPerSecond Int
+  bytesPerSecond  Int
+  connections     Int
+  avgLatency      Float
+  cpuUsage        Float
+  memoryUsage     Float
+  
+  @@map("network_metrics")
+}
+
+model SystemConfig {
+  id            String   @id @default(cuid())
+  key           String   @unique
+  value         String
+  description   String?
+  updatedAt     DateTime @updatedAt
+  
+  @@map("system_config")
+}
+
+model Alert {
+  id          String   @id @default(cuid())
+  title       String
+  description String
+  severity    String   // LOW, MEDIUM, HIGH, CRITICAL
+  status      String   @default("OPEN") // OPEN, ACKNOWLEDGED, RESOLVED
+  sourceIp    String?
+  score       Float?
+  timestamp   DateTime @default(now())
+  resolvedAt  DateTime?
+  
+  @@map("alerts")
+}
+
+model SimulationRun {
+  id           String   @id @default(cuid())
+  name         String
+  type         String   // DDOS, NORMAL, MIXED
+  duration     Int      // seconds
+  packetsCount Int
+  status       String   @default("RUNNING") // RUNNING, COMPLETED, FAILED
+  results      Json?
+  startedAt    DateTime @default(now())
+  completedAt  DateTime?
+  
+  @@map("simulation_runs")
+}
